@@ -1,0 +1,54 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>heroku test</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="/css/styles.css?v=1.0">
+</head>
+
+<body>
+    <header>
+    <h1>Create User</h1>
+        <!-- <a href="/posts/store">Create User</a> -->
+    </header>
+    
+    <!-- pag 117 = manejando lso errores para que se muestren en la pantalla -->
+    <!-- CHEQUEAR CODIGO CON LIBOR, O VER SI ES UN PROBLEMA QUE NO TIENE DONDE MOSTRARSE.  
+    
+    -->
+
+    <div>
+            <ul>
+                <% for (var i = 0; i < errors.length; i++) { %>
+                    <li> <%= errors[i] %> </li>
+                 <%}%>
+            </ul>
+        </div>
+
+<!-- action tiene el destino de nuestor route handeler -->
+    <form action="/user/store" method="POST">
+        <label>Name</label>
+            <input type="text" name="name">
+                <br>
+        <label>Lastname</label>
+            <input type="text" name="lastname">
+                <br>
+            <label>E-mail</label> 
+            <input type="text" name="email">
+                <br>
+            <label>Clave</label> 
+            <input type="text" name="password">
+                <br>
+            <!-- recordar pner: tu direccion sera unicamente usada para que la app pueda crear reportes cercanos a ti -->
+            <!-- aqui poner lista de select/ si no exite poner other=> y que la persona pueda ingresar los datos como la direccion etc.  -->
+            <label>Urbarnizacion</label> 
+            <input type="text" name="direccion">
+                <br>
+        <button type="submit">Send</button>
+    </form>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

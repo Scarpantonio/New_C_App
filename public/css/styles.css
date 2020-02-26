@@ -1,0 +1,22 @@
+body {
+    font-family: "open sans"
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+header {
+    /* line-height: 15px; */
+}
+
+hr {
+    margin-top: 20px;
+}
+
+button {
+    width: 100px;
+    height: 40px;
+    margin-top: 20px;
+}

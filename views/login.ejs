@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>heroku test</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+  <header>
+    <h1>Ingresar</h1>
+  </header>
+
+    <div>
+    <%if(errors!= null && errors.lenght > 0){ %> 
+        <ul>
+            <% for (var i = 0; i < errors.length; i++) { %>
+                <li> <%= errors[i] %> </li>
+             <%}%>
+        </ul>
+        <%}%>
+    </div>
+
+    <form action="/userlogin" method="POST">
+        
+          <label>E-mail</label> 
+          <input type="text" name="email">
+        <br>
+            <label>Clave</label> 
+          <input type="text" name="password">
+        <br>
+       <button type="submit">Ingresar</button>
+    </form>
+      <a href="/Precovery">No se mi cláve </a>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>heroku test</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<!-- Aqui es donde tenemos que utilizar los templates para poder mostrar los crimenes
+en el home page.  -->
+
+<body>
+    <nav>    
+        <ul>
+            <li><h2>VECINOSUNIDOS</h2></li>
+            <!-- si no esta log in -->
+            <%if(!loggedIn){%>
+                <li><a href="/posts/new">Crea tu cuenta</a> </li>
+                <li><a href="/login">Ingresar</a></li>
+                <%}%>     
+
+            <!-- si esta log in explicacion pag 111-->
+            <%if(loggedIn){%>
+            <li><a href="/crime_report">Crear reporte</a></li>
+            <!-- fatla crear esta pagina que luego va a lelvar a un home donde estan todas las URB para que puedan ser vistas.  -->
+            <!-- en vez de u cuenta linkear aqui para que la cuenta se amarre con el nombre del usuario.  dentro de mi cuenta tiene que esta =  mis reportes etc. -->
+            <li><a href="/micuenta">mi cuenta</a></li>
+            <li><a href="/logout">salir</a></li>
+            <%}%>   
+        </ul>
+    </nav>
+    <hr>
+
+  <header>
+        <h1>Reporta actividad criminal,<br> Conectate con tu comunidad <br> de manera anonima y segura.</h1>
+        <button><a href="/posts/new">Reportar Ahora</a></button>
+    </header>
+
+    <hr>
+    <div>
+            <h2>Vecinos unidos es el centro de tu Urbarnizacion - Reportes en tiempo real </h2>
+            <p>Vecinos Unidos es la mejor manera de mantenerte enterado acerca de lo que esta sucediendo en tu urbarnizacion, mantente enterado de los ultimos acontecimientos, reportes de crimenes, sospechosos asotando tu urbarnizacion. Vecinos unidos fue creado con la intension que los reportes se puedan llevar a cabo en tiempo real, para que toda la urbarnizacion pueda saber en tiempo real si corren peligro. </p>
+    </div>
+
+    <hr>
+    <h2>Reportes Recientes</h2>
+    <hr>
+    <!-- main reports desde la base de datos. -->
+    <div class=">
+            <% for (var i = 0; i < reports.length; i++) { %>
+                <h2 class="post-title">
+                    <!-- reporte del crimen y cuando se ejecuto -->
+                    <%= reports[i].title %> 
+                </h2>
+                <p class="post-description">
+                    <%= reports[i].body %>
+                </p>
+                <p class="location">
+                        <%= reports[i].urb %>
+                </p>
+                <p class="location">
+                        <%= reports[i].crimen %>
+                </p>
+                
+                <!-- para comentar lo sucedido -  no se si agregar esto ahora. 
+                tendria que agarrar justo este reporte en especifico, ver pag 125 para tener refernecia. 
+                -->
+                    <a href="">comentar</a>
+                    <a href="">compartir</a>
+            <hr>
+        </div>
+    <% } %>
+    
+    
+<main>
+    <h3>Busca reportes por Urbarnizacion/Barrio</h3>
+    </main>
+<ul>
+    <li> Alto-Irapa </li>
+    <li>El Junko</li>
+    <li>Luis Hurtado</li>
+    <li>Montealto</li>
+    <li>Tibron</li>
+    <li>El Araguaney</li>
+    <li>La niebla</li>
+    <li>Carapita</li>
+    <li>El junquito Pueblo</li>
+    <li>Tu URB no esta en la lista? <a href="">registrala aqui</a></li>
+</ul>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

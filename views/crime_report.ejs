@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>heroku test</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+    <header>
+        <h1>Reporta Crimen</h1>
+    </header>
+
+    <!-- el problema esta relacionado con la session de usuario. porque al crear al usuariono tenemos
+    problemas con el mismo codigo, es cuando empezamos a interactuar dentro de la session del usuario, que el 
+codigo aqui en ejs, hace que todo se rompa  en especial la primera linea. pero una vez que ya estas dentro de
+la session puedes eliminar esa linea y dejarlo como el otro y corre y muestra los erroes. 
+
+Profundizar en que hace el if(errors != null && errors.lenght > 0 para ver si asi podemos entender de donde viene el error. 
+entre todo el asyn thin
+-->
+<!-- esta logica aqui. nunca era detectada. siempre daba como si los errores no existieran, o no era procesados por alguna razon.  if(errors != null && errors.lenght > 0){  -->
+
+<div> 
+    <!-- aqui deberia estar el probema    -->
+    <%if(errors) { %> 
+        <ul>
+            <% for (var i = 0; i < errors.length; i++) { %>
+                <li> <%= errors[i]%> </li>
+             <%}%>
+        </ul>
+    <%}%>
+</div>
+<div>
+        
+
+    <form action="/reports/store" method="POST">
+        <label>Titulo de/los Sucesos</label><br>
+            <input type="text" name="title" placeholder="Titulo del suceso">
+            <br>
+        <label>Descripcion del suceso</label>
+        <br>
+            <textarea rows="5" placeholder="Epxlique el suceso en su comunidad?" name="body"></textarea>              
+            <br>
+        <label>Selecciona urbarnizacion/barrio</label><br>
+        <!-- // ver como las selecciones pueden ser almacenadas en la base de datos -->
+        <select name="urb" id="">
+                <option value="Alto-Irapa" name="urb">Alto-Irapa</option>
+                <option value="El junko" name="sospechoso">El junko</option>
+                <option value="El junko" name="sospechoso">Luis Hurtado</option>
+            </select>
+            <br>
+            <label>Calle</label><br>
+        <input type="text" name="location">
+        <br>
+        <label>Es esto un crimen?</label><br>
+        <select name="crimen" id="">
+            <option value="si" name="crimen">Si</option>
+            <option value="no" name="sospechoso">No</option>
+        </select>
+        <br>
+        <button type="submit">Send</button>
+    </form>
+
+
+<script src="js/scripts.js"></script>
+</body>
+</html>

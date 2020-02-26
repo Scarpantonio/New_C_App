@@ -1,0 +1,90 @@
+<!-- aqui primero deberiamos crear un controller con 
+
+    las respuestas estan dentro de req.session user id. y los documentos para hacer populate
+
+leer este articulo para tener una mejor idea. =>
+https://medium.com/@nicknauert/mongooses-model-populate-b844ae6d1ee7
+
+User.find({email:email})
+
+Reports.find({}).populate(userid)
+
+-->
+
+<!-- La accion tiene que ir a una forma que cheque el email. para que luego se le 
+pueda manera un correo electornico con las instrucciones a seguir.-->
+
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>heroku test</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+
+
+
+<header>
+    <h1>Mis reportes</h1>
+</header>
+
+  <h3>Reportes recientes</h3>
+
+  <div> 
+      
+      <!-- El reporte report_id ya tiene el filtro busca solo los reportes de ese id en especifico gracias a populate. -->
+      <!-- 
+
+        POR HACER:
+
+        ESTA IMPRIMIENDO TODOS LOS USUARIOS. VOLVER A MYREPORTS. Y VER EL VIDEO DE ESTE CHAMO PARA CREAR CONDICIONAL QUE SOLO 
+
+        El usuario no deberia tener que hacer log in una vez que ya se ha registrado. deberia ser un login automatico. 
+
+        ver si creamos un usuario durente la info no deberia mostrarse si no unicamente los de ese usuario. 
+        si se muetsra talvez es algo relacionado con el ip. 
+
+        Aqui talvez deberiamos crear un condicional:
+        si hay reportes de ese usuairo muestralos si no
+        "no tienes reportes que mostrar. crea tu primer reporte aqui"
+      -->
+          <ul>
+              <% for (var i = 0; i < reports_id.length; i++) { %>
+
+                <p class="location">
+                    <h3><li> <%= reports_id[i].title%></li></h3>
+                </p>
+
+                <p class="location">
+                    <li> <%= reports_id[i].body%></li>
+                </p>
+                
+                <p class="location">
+                    <li><strong>Urbarnizacion: </strong><%= reports_id[i].urb %></li>
+                </p>
+
+                <p class="location">
+                    <li><strong>Clasificacion: </strong><%= reports_id[i].crimen %></li>
+                </p>
+              <hr>
+            <%}%>   
+          </ul>
+      </div>
+  <div>
+  
+    
+  <script src="js/scripts.js"></script>
+</body>
+</html>
+
+
+
+
+
+
